@@ -21,7 +21,7 @@
 		// error, need a user to lookup
 	}
 	// query if all items
-	if(!empty($t_hour) && !empty($t_min) && !empty($type) && !empty($date)){
+	else if(!empty($t_hour) && !empty($t_min) && !empty($type) && !empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
 		id = '$user' AND 
@@ -31,7 +31,7 @@
 		tmin = $t_min");
 	}
 	//query if day and type
-	if(empty($t_hour) && empty($t_min) && !empty($type) && !empty($date)){
+	else if(empty($t_hour) && empty($t_min) && !empty($type) && !empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
 		id = '$user' AND 
@@ -39,7 +39,7 @@
 		dateE = $date");	
 	}
 	//query if type and time
-	if(!empty($t_hour) && !empty($t_min) && !empty($type) && empty($date)){
+	else if(!empty($t_hour) && !empty($t_min) && !empty($type) && empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
 		id = '$user' AND 
@@ -48,7 +48,7 @@
 		tmin = $t_min");
 	}
 	//query if day and time
-	if(!empty($t_hour) && !empty($t_min) && empty($type) && !empty($date)){
+	else if(!empty($t_hour) && !empty($t_min) && empty($type) && !empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
 		id = '$user' AND  
@@ -57,7 +57,7 @@
 		tmin = $t_min");
 	}
 	//query if day and type
-	if(empty($t_hour) && empty($t_min) && !empty($type) && !empty($date)){
+	else if(empty($t_hour) && empty($t_min) && !empty($type) && !empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
 		id = '$user' AND 
@@ -65,12 +65,12 @@
 		dateE = $date");
 	}
 	//query if just day
-	if(empty($t_hour) && empty($t_min) && empty($type) && !empty($date)){
+	else if(empty($t_hour) && empty($t_min) && empty($type) && !empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
 		id = '$user' AND 
 		dateE = $date");
 	}
-	
+	else //error
 	
 ?>
