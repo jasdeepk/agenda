@@ -20,7 +20,11 @@
 	if (empty($t_user)){
 		// error, need a user to lookup
 	}
-	// query if all items
+	if($result = $con->query("SELECT * FROM Event WHERE id = '$user'")){
+		echo $result;
+	}
+	else die "Error retrieving the Events";
+	/*// query if all items
 	else if(!empty($t_hour) && !empty($t_min) && !empty($type) && !empty($date)){
 		$result = $con->query("SELECT * FROM Event 
 		WHERE 
@@ -72,5 +76,5 @@
 		dateE = $date");
 	}
 	else //error
-	
+	*/
 ?>
