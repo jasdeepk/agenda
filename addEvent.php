@@ -1,7 +1,5 @@
 <?php
 	$type = $_GET['q']; // from open("GET", "thisFileName.php?q=" + meetingType+"&t_hout"+hourTime, true);
-	$t_hour = $_GET["t_hour"];
-	$t_min = $_GET["t_min"];
 	$user = $_GET["user"];
 	$date = $_GET["date"];
 	$text = $_GET["text"];
@@ -21,13 +19,13 @@
 	
 	// add if text description
 	if(!empty($text)){
-		if($result = $con->query("INSERT INTO Event(dateE, typeE, text, thour, tmin, id) VALUES ('$date', '$type', '$text', '$t_hour', '$t_min', '$user'")){
+		if($result = $con->query("INSERT INTO Event(dateE, typeE, text, id) VALUES ('$date', '$type', '$text', '$user'")){
 				echo $result;
 		}
 	}
 	// add if no text description
 	else if(empty($text)){
-		if($result = $con->query("INSERT INTO Event(dateE, typeE, text, thour, tmin, id) VALUES ('$date', NULL, '$text', '$t_hour', '$t_min', '$user'")){
+		if($result = $con->query("INSERT INTO Event(dateE, typeE, text, id) VALUES ('$date', NULL, '$text', '$user'")){
 				echo $result;
 		}
 	}
