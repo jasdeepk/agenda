@@ -16,9 +16,10 @@
 </head>
 
 <body>
+<p> INPUT </p>
   <script src="js/scripts.js"></script>
   <script src="js/jquery.min.js"></script>
-  <form action="Script URL" method="GET|POST">
+  <form name="input" action="Script URL" method="GET|POST">
   	Event Name:  <input type="text" name="event_name" />
 <br>
 	Start Date:  <input type="datetime-local" id="start" name="start_date" onchange="displayStart()"/>
@@ -26,6 +27,14 @@
 	End Date:    <input type="datetime-local" id="end" name="end_date" onchange="displayEnd()"/>
     <!-- form elements like input, textarea etc. -->
 </form>
+
+<br>
+<hr>
+
+<p> OUTPUT </p>
+<br>
+<p>"some stuff that dispalys things"</p>
+
 <script> 
 function displayStart() {
 var start = document.getElementById("start");
