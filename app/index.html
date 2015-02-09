@@ -17,5 +17,24 @@
 
 <body>
   <script src="js/scripts.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <form action="Script URL" method="GET|POST">
+  	Event Name:  <input type="text" name="event_name" />
+<br>
+	Start Date:  <input type="datetime-local" id="start" name="start_date" onchange="displayStart()"/>
+<br>
+	End Date:    <input type="datetime-local" id="end" name="end_date" onchange="displayEnd()"/>
+    <!-- form elements like input, textarea etc. -->
+</form>
+<script> 
+function displayStart() {
+var start = document.getElementById("start");
+window.alert(start.value);
+}
+function displayEnd() {
+var end = document.getElementById("end");
+window.alert(end.value);
+}
+</script>
 </body>
 </html>
