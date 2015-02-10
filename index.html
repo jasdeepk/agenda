@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Amazing Agenda</title>
+  <meta name="description" content="E-vents">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	
+	<!-- input -->
+	<form action="index.html" method="post">
+		Title: <input type="text" name="title"><br>
+		<p>
+            Category: 
+            <!--drop down box-->
+            <select name="selectinput">              
+                <option value="empty"></option>
+                <option value="work">work</option>
+                <option value="play">play</option>
+            </select>
+        </p>
+		Date: <input type="text" name="date"><br>
+		Time: <input type="text" name="time"><br>
+		Description: <input type="text" name="description"><br>
+		<input type="submit" value="Submit">
+		
+	</form>
+	
+  <?php
+  
+  if(isset($_POST["submit"])){
+	$type = $_GET['q']; // from open("GET", "thisFileName.php?q=" + meetingType+"&t_hout"+hourTime, true);
+	$title = $_GET["title"];
+	$date = $_GET["date"];
+	$type = $_GET["type"];
+	$time = $_GET["time"];
+	$text = $_GET["description"];
+	
+	/*
+	//$con = mysqli_connect( );
+	if(mysqli_connect_errno($con)){
+		echo "Failed to connect to DataBase: " .mysqli_connect_error();
+	}
+	*/
+	
+	//if (empty($t_user)){
+		// error, need a user to lookup
+//	}
+	
+	// add if text description
+	if(!empty($text)){
+		if($result = $con->query("INSERT INTO Event(dateE, typeE, text, id) VALUES ('$date', '$type', '$text', '$user'")){
+				echo $result;
+		}
+	}
+	// add if no text description
+	else if(empty($text)){
+		if($result = $con->query("INSERT INTO Event(dateE, typeE, text, id) VALUES ('$date', NULL, '$text', '$user'")){
+				echo $result;
+		}
+	}
+	else die "Error adding the Event";
+	}
+?>
+  
+  
+  <!-- output -->
+  <form>
+  
+  </form>
+</body>
+</html>
