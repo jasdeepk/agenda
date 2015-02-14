@@ -24,7 +24,7 @@
 				//echo $result;
 	}
 	// add if no text description
-	else if(empty($text)){
+	else if(empty($description)){
 		$result = $con->query("INSERT INTO Event(StartDate, EndDate, TypeE, Text, Id) VALUES ('$startdate', '$enddate', '$type', NULL, '100', '$eventname')");
 				//echo $result;
 	}
