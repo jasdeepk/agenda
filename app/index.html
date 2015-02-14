@@ -19,7 +19,8 @@
 <p> INPUT </p>
   <script src="js/scripts.js"></script>
   <script src="js/jquery.min.js"></script>
-  <form name="input" action="Script URL" method="GET|POST">
+  <!-- <form name="input" action="Script URL" method="GET|POST"> 	-->
+  <form name="input" action="addEvent.php" method="GET">
   	Event Name:  <input type="text" name="event_name" />
 	<p>
     Category: 
@@ -29,7 +30,7 @@
           <option value="play">play</option>
        </select>
     </p>
-	Description: <textarea name="description" id="description" cols="30" rows="3"> </textarea>
+	Description: <textarea name="description" id="desc" cols="30" rows="3"> </textarea>
 <br>
 	Start Date:  <input type="datetime-local" id="start" name="start_date" onchange="displayStart()"/>
 <br>
