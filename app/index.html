@@ -21,11 +21,22 @@
   <script src="js/jquery.min.js"></script>
   <form name="input" action="Script URL" method="GET|POST">
   	Event Name:  <input type="text" name="event_name" />
+	<p>
+    Category: 
+            <!--drop down box-->
+       <select name="selectinput">              
+          <option value="work">work</option>
+          <option value="play">play</option>
+       </select>
+    </p>
+	Description: <textarea name="description" id="description" cols="30" rows="3"> </textarea>
 <br>
 	Start Date:  <input type="datetime-local" id="start" name="start_date" onchange="displayStart()"/>
 <br>
 	End Date:    <input type="datetime-local" id="end" name="end_date" onchange="displayEnd()"/>
     <!-- form elements like input, textarea etc. -->
+<br>
+	<input type="submit" value="Submit">
 </form>
 
 <br>
@@ -33,7 +44,7 @@
 
 <p> OUTPUT </p>
 <br>
-<p>"some stuff that dispalys things"</p>
+<p>"some stuff that displays things"</p>
 
 <script> 
 function displayStart() {
