@@ -39,14 +39,20 @@
 <br>
 	<input type="submit" value="Submit">
 </form>
-
-<br>
 <hr>
-
 <p> OUTPUT </p>
-<br>
+<table cellpadding=0 cellspacing=10>
+			<!-- Create the table column headings -->
+			<tr valign=left>
+			<td class=rowheader>StartDate</td>
+			<td class=rowheader>EndDate</td>
+			<td class=rowheader>Type</td>
+            <td class=rowheader>Description</td>
+			<td class=rowheader>User</td>
+			<td class=rowheader>Title</td>
+			</tr>
 <?php 
-	echo "something";
+	
 	// print out stuff to page
 	$con = new mysqli("localhost", "root", "", "example"); 
 	if(mysqli_connect_errno($con)){
@@ -56,7 +62,7 @@
 	//if ($_SERVER["REQUEST_METHOD"] == "POST") { //if coming from another page          
     
    //if hit output
-		echo "inside the tiing";
+		
 			$sqlQuery = "SELECT * FROM Event";
 			$result = mysqli_query($con, $sqlQuery);
 			if(!$result){
@@ -65,23 +71,22 @@
 			$row = mysqli_fetch_row($result);
 			$num_results = $row[0];
 			if($num_results < 0){
-				echo "ya goofed somewhere in the query");
+				echo "ya goofed somewhere in the query";
 			}
-	
-			for( $i=0; $i < $num_results; $i++) {
-					$row = mysqli_fetch_assoc ($result);
-					//print_r($row);
-					echo "LOOK: " .$row[$i];
+			while($row = $result->fetch_assoc()){
+				echo "<td>".$row['StartDate']."</td>";
+				echo "<td>".$row['EndDate']."</td>";
+				echo "<td>".$row['TypeE']."</td>";
+                echo "<td>".$row['Text']."</td>";
+				echo "<td>".$row['Id']."</td>";
+				echo "<td>".$row['Title']."</td>";
+				echo"</tr>";
+		
 			}
+			
+		
     //}
 ?>
-<form  action="index.php" method="post">
-
-        <p>
-            <input type="submit" name="fromIndex" value="Show Output" />
-        </p>
-
-</form>
 
 
 <!-- <script> 
