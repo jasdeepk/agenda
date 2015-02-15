@@ -1,4 +1,5 @@
 <?php
+header('Location: index.php');
 	$eventname = $_GET['event_name'];
 	$type = $_GET['selectinput']; // from open("GET", "thisFileName.php?q=" + meetingType+"&t_hout"+hourTime, true);
 	$startdate = $_GET["start_date"];

@@ -32,9 +32,11 @@
     </p>
 	Description: <textarea name="description" id="desc" cols="30" rows="3"> </textarea>
 <br>
-	Start Date:  <input type="datetime-local" id="start" name="start_date" onchange="displayStart()"/>
+	Date:  <input type="date" id="date" name="date"/>
+<br> 
+	Start Time: <input type="time" id="start" name="start_time" /> 
 <br>
-	End Date:    <input type="datetime-local" id="end" name="end_date" onchange="displayEnd()"/>
+	End Time:    <input type="time" id="end" name="end_time" />
     <!-- form elements like input, textarea etc. -->
 <br>
 	<input type="submit" value="Submit">
