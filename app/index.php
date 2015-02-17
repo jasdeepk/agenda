@@ -46,8 +46,9 @@
 <table cellpadding=0 cellspacing=10>
 			<!-- Create the table column headings -->
 			<tr valign=left>
-			<td class=rowheader>StartDate</td>
-			<td class=rowheader>EndDate</td>
+			<td class=rowheader>Start Date</td>
+			<td class=rowheader>Start Time</td>
+			<td class=rowheader>End Time</td>
 			<td class=rowheader>Type</td>
             <td class=rowheader>Description</td>
 			<td class=rowheader>User</td>
@@ -77,7 +78,8 @@
 			}
 			while($row = $result->fetch_assoc()){
 				echo "<td>".$row['StartDate']."</td>";
-				echo "<td>".$row['EndDate']."</td>";
+				echo "<td>".$row['StartTime']."</td>";
+				echo "<td>".$row['EndTime']."</td>";
 				echo "<td>".$row['TypeE']."</td>";
                 echo "<td>".$row['Text']."</td>";
 				echo "<td>".$row['Id']."</td>";

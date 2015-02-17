@@ -2,8 +2,9 @@
 header('Location: index.php');
 	$eventname = $_GET['event_name'];
 	$type = $_GET['selectinput']; // from open("GET", "thisFileName.php?q=" + meetingType+"&t_hout"+hourTime, true);
-	$startdate = $_GET["start_date"];
-	$enddate = $_GET["end_date"];
+	$date = $_GET["date"];
+	$start_time = $_GET["start_time"];
+	$end_time = $_GET["end_time"];
 	$description = $_GET["description"];
 	// assume hour and minute must be given together
 	
@@ -21,12 +22,12 @@ header('Location: index.php');
 	*/
 	// add if text description
 	if(!empty($description)){
-		$result = $con->query("INSERT INTO Event (StartDate, EndDate, TypeE, Text, Id, Title) VALUES ('$startdate', '$enddate', '$type', '$description', '100', '$eventname')");
+		$result = $con->query("INSERT INTO Event (StartDate, StartTime, EndTime, TypeE, Text, Id, Title) VALUES ('$date', '$start_time', '$end_time', '$type', '$description', '100', '$eventname')");
 				//echo $result;
 	}
 	// add if no text description
 	else if(empty($description)){
-		$result = $con->query("INSERT INTO Event(StartDate, EndDate, TypeE, Text, Id) VALUES ('$startdate', '$enddate', '$type', NULL, '100', '$eventname')");
+		$result = $con->query("INSERT INTO Event(StartDate, StartTime, EndTime, TypeE, Text, Id) VALUES ('$date', 'start_time', '$end_time', '$type', NULL, '100', '$eventname')");
 				//echo $result;
 	}
 	else echo "Error adding the Event";
