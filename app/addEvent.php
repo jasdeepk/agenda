@@ -20,15 +20,22 @@ header('Location: index.php');
 		// error, need a user to lookup
 	}
 	*/
-	// add if text description
-	if(!empty($description)){
-		$result = $con->query("INSERT INTO Event (StartDate, StartTime, EndTime, TypeE, Text, Id, Title) VALUES ('$date', '$start_time', '$end_time', '$type', '$description', '100', '$eventname')");
-				//echo $result;
+	// check first time < second time, no null dates etc
+	if(empty($eventname) || empty($type) || empty($date) || empty($start_time) || empty($end_time) || $start_time > $end_time){
+		//
+		echo "Error adding the Event";
 	}
-	// add if no text description
-	else if(empty($description)){
-		$result = $con->query("INSERT INTO Event(StartDate, StartTime, EndTime, TypeE, Text, Id) VALUES ('$date', 'start_time', '$end_time', '$type', NULL, '100', '$eventname')");
-				//echo $result;
+	else {
+		// add if text description
+		if(!empty($description)){
+			$result = $con->query("INSERT INTO Event (StartDate, StartTime, EndTime, TypeE, Text, Id, Title) VALUES ('$date', '$start_time', '$end_time', '$type', '$description', '100', '$eventname')");
+					//echo $result;
+		}
+		// add if no text description
+		else if(empty($description)){
+			$result = $con->query("INSERT INTO Event(StartDate, StartTime, EndTime, TypeE, Text, Id) VALUES ('$date', 'start_time', '$end_time', '$type', NULL, '100', '$eventname')");
+					//echo $result;
+		}
+		else echo "Error adding the Event";
 	}
-	else echo "Error adding the Event";
 ?>
