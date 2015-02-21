@@ -20,8 +20,11 @@ header('Location: index.php');
 		// error, need a user to lookup
 	}
 	*/
+	$today = date('Y-m-d');
+	$diff = strtotime($date) - strtotime($today); 
+	
 	// check first time < second time, no null dates etc
-	if(empty($eventname) || empty($type) || empty($date) || empty($start_time) || empty($end_time) || $start_time > $end_time){
+	if(empty($eventname) || empty($type) || empty($date) || empty($start_time) || empty($end_time) || $start_time > $end_time || $diff < 0){
 		//
 		echo "Error adding the Event";
 	}
